@@ -1,0 +1,6 @@
+com/example/demo/Controller/PropertyController.class
+com/example/demo/Controller/StaticController.class
+com/example/demo/Service/PropertyService.class
+com/example/demo/Repository/PropertyRepository.class
+com/example/demo/DemoApplication.class
+com/example/demo/Model/Property.class
