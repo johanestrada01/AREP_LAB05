@@ -1,8 +1,9 @@
-# Servidor Web en Java con conexíon a mysql
+# Servidor Apache con cifrado y conexion segura a servidor de spring boot
 
 ## Descripción
-En este laboratorio se cuenta con una implementación de un servidor con spring boot, que permite a los usuarios administrar propiedades. El servidor se encuentra desplegado en una ec2 de aws, con una conexión a una base de datos de mysql desplegada en otra ec2. El servidor y la base de datos se encuentran desplegadas dentro de contenedores de docker.
-Las direcciones ip no se incluyen debido a que las maquinas ya no se encuentras desplegadas, pero se pueden realizar pruebas por medio del código incluido en el repositorio.
+En este laboratorio, contamos con un servidor Spring Boot y un servidor Apache, ambos con SSL habilitado para cifrado, lo que permite el acceso mediante HTTPS. Estos servidores están desplegados en AWS. Para su implementación, se tomó como base el laboratorio anterior, separando el backend y el frontend en servidores distintos.
+
+Los certificados SSL fueron generados utilizando Certbot junto con DuckDNS para la gestión de los dominios, asegurando una conexión segura y autenticada.
 
 ### Características principales
 
@@ -10,6 +11,8 @@ Las direcciones ip no se incluyen debido a que las maquinas ya no se encuentras 
 - Desplegado en un servidor web
 - Conexión a base de datos de mysql
 - Uso de contenedores
+- Cifrado SSL
+- HTTPS
 
 
 ---
@@ -36,11 +39,12 @@ RD=1004064256 -p 3306:3306 -d mysql:latest
  mvn spring-boot:run
 ```
 
+### Servidor apache
+Instalar un servidor de apache y los elementos estaticos de spring boot hay que moverlos al directorio /var/httpd/www/html
+
 ### Uso
 - Es necesario cambiar las direcciones ip dependiendo de donde se despliegue, cambiando las redirecciones de los archivos de javascript y la cadena de conexión de la base de datos. Posteriormente se puede iniciar la aplicación.
 
-### Acceso
-- Ingresar a http://localhost:8080/ Acá encontraremos el index donde se puede redirigir a los demas componentes.
 
 ## Tecnologias
 - Java
@@ -50,6 +54,8 @@ RD=1004064256 -p 3306:3306 -d mysql:latest
 - CSS
 - Docker
 - Spring boot
+- Apache
+- Cerbot
 
 ## Autores
 - Johan Alejandro Estrada Pastran
